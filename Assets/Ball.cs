@@ -15,7 +15,8 @@ public class Ball : MonoBehaviour
         {
             xVelocity = 1.0f;
         }
-        
+
+        rb.freezeRotation = true;
         rb.velocity = new Vector2(xVelocity * startingSpeed, yVelocity * startingSpeed);
     }
 }

@@ -358,6 +358,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
+  maxY: 4
+  minY: -4
 --- !u!1 &813806952
 GameObject:
   m_ObjectHideFlags: 0
@@ -502,6 +504,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
+  maxY: 4
+  minY: -4
 --- !u!1 &1353083342
 GameObject:
   m_ObjectHideFlags: 0
