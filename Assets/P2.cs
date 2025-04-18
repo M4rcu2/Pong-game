@@ -17,6 +17,8 @@ public class P2 : MonoBehaviour
 
     private float _lastDashTime;
     private bool _isDashing;
+    public AudioClip dashSound;
+    public AudioSource audioSource;
 
     private void Update()
     {
@@ -54,8 +56,9 @@ public class P2 : MonoBehaviour
 
     private void Dash(Vector2 direction)
     {
-        if (!_isDashing)
-            StartCoroutine(DashCoroutine(direction));
+        if (_isDashing) return;
+        audioSource.PlayOneShot(dashSound);
+        StartCoroutine(DashCoroutine(direction));
     }
 
     private IEnumerator DashCoroutine(Vector2 direction)
