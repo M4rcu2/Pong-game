@@ -10,6 +10,12 @@ public class MenuManager : MonoBehaviour
         SceneManager.LoadScene("GameScene");
     }
 
+    public void StartCPUGame()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("GameCPUScene");
+    }
+
     public void ExitGame()
     {
         Application.Quit();
