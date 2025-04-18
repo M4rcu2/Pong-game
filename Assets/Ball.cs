@@ -7,6 +7,7 @@ public class Ball : MonoBehaviour
 
     public AudioClip[] bounceSounds;
     private AudioSource _audioSource;
+    private bool _hasSpawnedExit = false;
 
     private GameManager _gm;
 
@@ -67,6 +68,8 @@ public class Ball : MonoBehaviour
 
     private void OnBecameInvisible()
     {
+        if (_hasSpawnedExit) return;
+        _hasSpawnedExit = true;
         HandleExit();
     }
 
