@@ -1734,7 +1734,7 @@ GameObject:
   - component: {fileID: 702823244}
   m_Layer: 0
   m_Name: Paddle1
-  m_TagString: Untagged
+  m_TagString: Paddle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1970,7 +1970,7 @@ GameObject:
   - component: {fileID: 813806956}
   m_Layer: 0
   m_Name: Paddle2
-  m_TagString: Untagged
+  m_TagString: Paddle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2869,7 +2869,7 @@ GameObject:
   - component: {fileID: 1353083345}
   m_Layer: 0
   m_Name: BorderUp
-  m_TagString: Untagged
+  m_TagString: BorderUp
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2950,7 +2950,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 1353083342}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 8e24699068911e145b7e95a8fac4f8d0, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -3243,7 +3243,7 @@ GameObject:
   - component: {fileID: 1518715199}
   m_Layer: 0
   m_Name: BorderDown
-  m_TagString: Untagged
+  m_TagString: BorderDown
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3324,7 +3324,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 1518715196}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 8e24699068911e145b7e95a8fac4f8d0, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
