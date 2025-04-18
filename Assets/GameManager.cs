@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
     public GameObject ballPrefab;
     public Transform ballSpawnPoint;
     public float ballLaunchDelay = 0.5f;
-    
+
     [Header("Score UI")]
     public TextMeshProUGUI leftScoreText;
     public TextMeshProUGUI rightScoreText;
@@ -20,22 +20,40 @@ public class GameManager : MonoBehaviour
     public GameObject endScreenPanel;
     public TextMeshProUGUI winText;
 
+    [Header("Pause Menu UI")]
+    public GameObject pauseMenuPanel;
+
     [HideInInspector] public string scorer = "";
     [HideInInspector] public int leftScore;
     [HideInInspector] public int rightScore;
 
     private const int MaxScore = 10;
+    private bool _isPaused;
 
     private void Awake()
     {
         endScreenPanel.SetActive(false);
-        if (Instance == null) { Instance = this; }
-        else { Destroy(gameObject); }
+        pauseMenuPanel.SetActive(false);
+
+        if (Instance == null)
+            Instance = this;
+        else
+            Destroy(gameObject);
     }
-    
+
     private void Start()
     {
         SpawnBallWithDelay();
+    }
+
+    private void Update()
+    {
+        if (!Input.GetKeyDown(KeyCode.Escape)) return;
+        
+        if (_isPaused)
+            ResumeGame();
+        else
+            PauseGame();
     }
 
     public void AddPointToLeft()
@@ -99,5 +117,19 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene("MenuScene");
+    }
+
+    public void PauseGame()
+    {
+        Time.timeScale = 0f;
+        pauseMenuPanel.SetActive(true);
+        _isPaused = true;
+    }
+
+    public void ResumeGame()
+    {
+        Time.timeScale = 1f;
+        pauseMenuPanel.SetActive(false);
+        _isPaused = false;
     }
 }
