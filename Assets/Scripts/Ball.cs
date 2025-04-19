@@ -38,34 +38,46 @@ public class Ball : MonoBehaviour
             var randomClip = bounceSounds[Random.Range(0, bounceSounds.Length)];
             _audioSource.PlayOneShot(randomClip);
         }
-        
-        if (collision.gameObject.CompareTag("BorderUp"))
+
+        // Bounce off top/bottom borders
+        if (collision.gameObject.CompareTag("BorderUp") || collision.gameObject.CompareTag("BorderDown"))
         {
-            const float directionY = -1f;
+            var directionY = collision.gameObject.CompareTag("BorderUp") ? -1f : 1f;
             var forceAmount = startingSpeed * 0.1f;
             rb.AddForce(new Vector2(0f, directionY * forceAmount), ForceMode2D.Impulse);
-        } else if (collision.gameObject.CompareTag("BorderDown"))
-        {
-            const float directionY = 1f;
-            var forceAmount = startingSpeed * 0.1f;
-            rb.AddForce(new Vector2(0f, directionY * forceAmount), ForceMode2D.Impulse);
+            return;
         }
-        
+
+        // Paddle collision
         if (!collision.gameObject.CompareTag("Paddle")) return;
-        
-        var paddleRb = collision.gameObject.GetComponent<Rigidbody2D>();
-        
-        if (paddleRb == null) return;
-        
-        var paddleYVelocity = paddleRb.velocity.y;
-        const float influenceFactor = 0.9f;
-        var newVelocity = rb.velocity;
-        newVelocity.y += paddleYVelocity * influenceFactor;
-        rb.velocity = newVelocity;
+
+        var paddle = collision.gameObject;
+        var paddleRb = paddle.GetComponent<Rigidbody2D>();
+        var paddleCollider = paddle.GetComponent<Collider2D>();
+
+        if (paddleRb == null || paddleCollider == null) return;
+
+        // Where did the ball hit on the paddle (0 = center, -1 = bottom, +1 = top)
+        Vector3 contactPoint = collision.GetContact(0).point;
+        var paddleCenterY = paddleCollider.bounds.center.y;
+        var paddleHeight = paddleCollider.bounds.size.y;
+        var offset = (contactPoint.y - paddleCenterY) / (paddleHeight / 2f);
+
+        // Create angle and apply it to ball
+        var bounceAngle = offset * 75f; // degrees max
+        var speed = rb.velocity.magnitude;
+        var directionX = Mathf.Sign(rb.velocity.x);
+
+        // Convert angle to radians and use directionX to determine left/right
+        var angleRad = bounceAngle * Mathf.Deg2Rad;
+        var newDir = new Vector2(directionX * Mathf.Cos(angleRad), Mathf.Sin(angleRad)).normalized;
+
+        rb.velocity = newDir * speed;
+
+        // Add influence from paddle movement
+        rb.velocity += new Vector2(0, paddleRb.velocity.y * 0.3f);
     }
-
-
-
+    
     private void OnBecameInvisible()
     {
         if (_hasSpawnedExit) return;

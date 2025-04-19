@@ -1995,7 +1995,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 5
+  m_Constraints: 7
 --- !u!1 &811760526
 GameObject:
   m_ObjectHideFlags: 0
@@ -2361,7 +2361,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 5
+  m_Constraints: 7
 --- !u!1 &824565917
 GameObject:
   m_ObjectHideFlags: 0

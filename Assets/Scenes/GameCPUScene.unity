@@ -2001,6 +2001,7 @@ GameObject:
   - component: {fileID: 702823243}
   - component: {fileID: 702823244}
   - component: {fileID: 702823245}
+  - component: {fileID: 702823246}
   m_Layer: 0
   m_Name: Paddle1
   m_TagString: Paddle
@@ -2236,6 +2237,33 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!50 &702823246
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 702823240}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
 --- !u!1 &811760526
 GameObject:
   m_ObjectHideFlags: 0
@@ -2340,6 +2368,7 @@ GameObject:
   - component: {fileID: 813806956}
   - component: {fileID: 813806957}
   - component: {fileID: 813806958}
+  - component: {fileID: 813806959}
   m_Layer: 0
   m_Name: Paddle2
   m_TagString: Paddle
@@ -2590,6 +2619,33 @@ MonoBehaviour:
   moveSpeed: 5
   maxY: 4
   minY: -4
+--- !u!50 &813806959
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 813806952}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
 --- !u!1 &824565917
 GameObject:
   m_ObjectHideFlags: 0
